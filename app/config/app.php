@@ -107,6 +107,9 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
+                    //3rd party
+                    'Way\Generators\GeneratorsServiceProvider'
+
 	),
 
 	/*
