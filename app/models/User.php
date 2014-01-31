@@ -27,6 +27,25 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     protected $fillable = ['username', 'email'];
 
     /**
+    * Validation rules
+    *
+    * @var array
+    */
+    public static $rules = [
+        'username' => 'required|between:4,16|unique',
+        'email' => 'required|email|unique',
+        'password' => 'required|alpha_num|min:8|confirmed',
+        'password_confirmation' => 'required|alpha_num|min:8'
+    ];
+
+    /**
+    * Automaticall remove redundant data before save ie. password_confirmation
+    *
+    * @var boolean
+    */
+    //public $autoPurgeRedundantAttributes = true;
+
+    /**
      * Get the unique identifier for the user.
      *
      * @return mixed
